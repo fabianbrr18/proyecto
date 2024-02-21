@@ -4,31 +4,18 @@ var elements = null;
 var elementsLeng = 0
 
 /*************/
-window.addEventListener("load",function(){
+window.addEventListener("load", function () {
     getUserJson();
     getUserStatusJson();
-    getRoleJson();  
+    getRoleJson();
 });
 
-function validateForm() {
-    /**This is the variable declarations*/
-    objForm = document.getElementById("form_login");
-    elements = objForm.querySelectorAll("input");
-    for (let i = 0; i < elements.length; i++) {
-        console.log(elements[i].value);
-        if (elements[i].value == "") {
-            alert("Valide los datos ingresados");
-            elements[i].focus();
-            return false;
-        }
-    }
-}
 
 function getData(id, e) {
-    var validate=false;
+    var validate = false;
     if (validateForm(id)) {
         //getDataForm(id);
-        validate=true;
+        validate = true;
     }
 
 
@@ -38,6 +25,7 @@ function getData(id, e) {
 }
 
 function validateForm(id) {
+   
     objForm = document.getElementById(id);
     elements = objForm.querySelectorAll("input");
     elementsLeng = elements.length;
@@ -71,12 +59,86 @@ function getDataForm(id) {
     }
 }
 
+/** function clear data 
+ * (id) is identification the form
+ */
 
+function clearData(id) {
+    objForm = document.getElementById(id);
+    elements = objForm.querySelectorAll("input");
+    elementsLeng = elements.length;
+    for (let i = 0; i < elementsLeng; i++) {
+        let element = elements[i];
+        element.value = "";
+    }
 
+}
 
+/**functions form enable 
+ * (id) is identification the form
+ */
+function formEnable(id) {
+    objForm = document.getElementById(id);
+    elements = objForm.querySelectorAll("input");
+    elementsLeng = elements.length;
+    for (let i = 0; i < elementsLeng; i++) {
+        let element = elements[i];
+        element.disabled = false
+
+    }
+}
+
+/**funtion form disable
+ * (id) is identification the form
+ */
+function formDisable(id){
+    objForm = document.getElementById(id);
+    elements = objForm.querySelectorAll("input");
+    elementsLeng = elements.length;
+    for (let i =0; i < elementsLeng;i ++){
+        let element = elements[i];
+        element.disabled = true
+    }
+}
+
+/**funtion create user 
+ * (id)is identification the form
+ */
 function createUser(id) {
     clearData(id);
     formEnable(id);
     showModal();
 }
 
+/**function show modal
+ * 
+ */
+function showModal(){
+    myModal.show();
+}
+
+
+
+
+
+/**function view password
+ * 
+ */
+function viewPassword(idBtn) {
+    let objBtn = document.getElementById(idBtn);
+    let mySrc = "";
+    let objImg = objBtn.firstChild;
+    let textInput = "";
+    let objInput = objBtn.parentElement.children[0];
+
+    if (objInput.type == "text") {
+        mySrc = "../../../public/assets/img/icons/eye-slash.svg";
+        textInput = "password";
+    } else {
+        mySrc = "../../../public/assets/img/icons/eye.svg";
+        textInput = "text";
+    }
+    objImg.src = mySrc;
+    objInput.type = textInput;
+
+}
