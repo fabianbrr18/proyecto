@@ -1,9 +1,8 @@
 <?php
 include_once('../Config/Config.php');
 
-// sql query to get data
-$query = "SELECT * FROM `role` WHERE 1 ";
-
+//sql query to  get data
+$query =  "SELECT * FROM `user_status` WHERE 1; ";
 $result = $mysqli->query($query);
 
 //Convert result to JSON format
@@ -13,5 +12,5 @@ while($row = $result->fetch_assoc()){
 }
 $result->free_result();
 $mysqli->close();
-echo json_encode($data);
+echo json_encode($data)
 ?>

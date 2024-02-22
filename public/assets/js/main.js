@@ -152,12 +152,8 @@ function formEnableEdit(id) {
  */
 
 function deleteUser(id) {
-    let getConfirm = window.confirm("Seguro desea Eliminar?");
-    if (getConfirm) {
-        alert("OK DELETE");
-    } else {
-        alert("ERROR DELETE");
-    }
+   
+    
 }
 /**function view password
  * 
@@ -202,14 +198,34 @@ function createTable(getArray) {
  * funtion create table array
  */
 function createTableArray(getArray) {
+
     const containerTbody = document.getElementById('myTable');
     var formId = "'form_login'";
     let rowTable = '';
     let row = getArray.length;
 
     for (let i = 0; i < row; i++) {
-        rowTable = rowTable + '<tr><th scope="row">' + (i + 1) + '</th><td>' + getArray[i].User_user + '</td><td>' + getArray[i].User_status_name + '</td><td>' + getArray[i].Role_name + '</td><td><div ><button type="button" style="background-color: #C7C5F4;" onclick="viewUser(' + formId + ',' + getArray[i].User_id + ')"class="btn m-1"><img src="../../../public/assets/img/icons/eye.svg"></button><button type="button" style="background-color: #C7C5F4;" onclick="editUser(' + formId + ',' + getArray[i].User_id + ')"class="btn m-1"><img src="../../../public/assets/img/icons/pen.svg"></button><button type="button" style="background-color: #C7C5F4;" onclick="deleteUser(' + formId + ',' + getArray[i].User_id + ')"class="btn m-1"><img src="../../../public/assets/img/icons/trash.svg"></button></div></td></tr>';
+        rowTable = rowTable + '<tr><th scope="row">' + (i + 1) + '</th><td>' + getArray[i].User_user + '</td><td>' + getArray[i].User_status_name + '</td><td>' + getArray[i].Role_name + '</td><td><div class="d-flex justify-content-center"><button type="button" style="background-color: #C7C5F4;" onclick="viewUser(' + formId + ',' + getArray[i].User_id + ')"class="btn m-1"><img src="../../../public/assets/img/icons/eye.svg"></button><button type="button" style="background-color: #C7C5F4;" onclick="editUser(' + formId + ',' + getArray[i].User_id + ')"class="btn m-1"><img src="../../../public/assets/img/icons/pen.svg"></button><button type="button" style="background-color: #C7C5F4;" onclick=" getDeleteJson(' + getArray[i].User_id + ')"class="btn m-1"><img src="../../../public/assets/img/icons/trash.svg"></button></div></td></tr>';
 
     }
     containerTbody.innerHTML = rowTable;
+    
+    
 }
+
+/**
+ * crete slect array
+ */
+function createSelectArray(getArray,id) {
+    const containerSelect = document.getElementById(id);
+
+    var optionSelect = '<option selected>Open this select menu</option>';
+    let row = getArray.length;
+    for (let i = 0; i < row; i++) {
+        let element=Object.values(getArray[i]);
+        optionSelect = optionSelect + '<option value="' +element[0] + '">' + element[1] + '</option>';
+
+    }
+    containerSelect.innerHTML = optionSelect;
+}
+
