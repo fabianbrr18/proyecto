@@ -1,0 +1,2 @@
+sp_select_id_user
+sp_select_all_user
