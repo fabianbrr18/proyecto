@@ -35,38 +35,16 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">User</th>
-                                <th scope="col">Password</th>
                                 <th scope="col">State</th>
                                 <th scope="col">Role</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
-                        <tbody id="idTbody">
+                        <tbody id="myTable">
 
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td scope="col">#</td>
-                                <td scope="col">User</td>
-                                <td scope="col">Password</td>
-                                <td scope="col">State</td>
-                                <td scope="col">Role</td>
-                                <td scope="col">
-                                    <!---Container button actions-->
-
-                                    <button type="button" style="background-color: #C7C5F4;"
-                                        onclick="viewUser('form_login')" class="btn"><img
-                                            src="../../../public/assets/img/icons/eye.svg"></button>
-
-                                    <button type="button" style="background-color: #C7C5F4;"
-                                        onclick="editUser('form_login')" class="btn"><img
-                                            src="../../../public/assets/img/icons/pen.svg"></button>
-
-                                    <button type="button" style="background-color: #C7C5F4;"
-                                        onclick="deleteUser('form_login')" class="btn"><img
-                                            src="../../../public/assets/img/icons/trash.svg"></button>
-
-                                </td>
                             </tr>
                         </tfoot>
                     </table>
@@ -95,11 +73,11 @@
                                 <div class="mb-3 col-md-6">
                                     <label for="user_password" class="form-label">Password</label>
                                     <div class="input-group">
-                                                
+
                                         <input type="password" class="form-control input_disabled" id="User_password"
                                             name="User_password" maxlength="20" minlength="10">
-                                            <button id="btnViewPass" onclick="viewPassword(this.id)" type="button" class="btn"
-                                            style="background-color: #C7C5F4;" ><img
+                                        <button id="btnViewPass" onclick="viewPassword(this.id)" type="button"
+                                            class="btn" style="background-color: #C7C5F4;"><img
                                                 src="../../../public/assets/img/icons/eye-slash.svg" alt=""></button>
                                     </div>
 
@@ -107,12 +85,12 @@
                                 <div class="mb-3 col-md-6">
                                     <label for="user_password_repeat" class="form-label">Confirm Password</label>
                                     <div class="input-group">
-                                        
+
                                         <input type="password" class="form-control input_disabled"
                                             id="user_password_repeat" name="user_password_repeat" maxlength="20"
                                             minlength="10">
-                                            <button id="btnViewPass2" onclick="viewPassword(this.id)" type="button" class="btn"
-                                            style="background-color: #C7C5F4;" ><img
+                                        <button id="btnViewPass2" onclick="viewPassword(this.id)" type="button"
+                                            class="btn" style="background-color: #C7C5F4;"><img
                                                 src="../../../public/assets/img/icons/eye-slash.svg" alt=""></button>
                                     </div>
 

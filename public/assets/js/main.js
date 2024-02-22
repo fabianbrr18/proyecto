@@ -25,7 +25,7 @@ function getData(id, e) {
 }
 
 function validateForm(id) {
-   
+
     objForm = document.getElementById(id);
     elements = objForm.querySelectorAll("input");
     elementsLeng = elements.length;
@@ -91,11 +91,11 @@ function formEnable(id) {
 /**funtion form disable
  * (id) is identification the form
  */
-function formDisable(id){
+function formDisabled(id) {
     objForm = document.getElementById(id);
     elements = objForm.querySelectorAll("input");
     elementsLeng = elements.length;
-    for (let i =0; i < elementsLeng;i ++){
+    for (let i = 0; i < elementsLeng; i++) {
         let element = elements[i];
         element.disabled = true
     }
@@ -113,14 +113,52 @@ function createUser(id) {
 /**function show modal
  * 
  */
-function showModal(){
+function showModal() {
     myModal.show();
 }
+/**
+ * function view User modal
+ */
+function viewUser(id, idUser) {
 
+    clearData(id);
+    formDisabled(id);
+    showModal();
+    alert("ID USER" + idUser);
+}
 
+/**
+ * function edit user (modal)
+ */
+function editUser(id, idUser) {
+    clearData(id);
+    formEnable(id);
+    formEnableEdit(id);
+    showModal();
+    alert("ID USER" + idUser);
+}
+function formEnableEdit(id) {
+    objForm = document.getElementById(id);
+    elements = objForm.querySelectorAll(".input_disabled");
+    elementsLeng = elements.length;
+    for (let i = 0; i < elementsLeng; i++) {
+        let element = elements[i];
+        element.disabled = true;
+    }
+}
 
+/**
+ * function dele user (modal)
+ */
 
-
+function deleteUser(id) {
+    let getConfirm = window.confirm("Seguro desea Eliminar?");
+    if (getConfirm) {
+        alert("OK DELETE");
+    } else {
+        alert("ERROR DELETE");
+    }
+}
 /**function view password
  * 
  */
@@ -141,4 +179,37 @@ function viewPassword(idBtn) {
     objImg.src = mySrc;
     objInput.type = textInput;
 
+}
+
+/**function create table
+ * 
+ */
+function createTable(getArray) {
+    const containerTable = document.getElementById('id_table');
+    const textTable = '<table class="table">';
+    const tHead = '<thead><tr><th scope="col">#</th><th scope="col">First</th><th scope="col">Last</th><th scope="col">Handle</th></tr></thead><tbody>';
+    const textTableEnd = '</tbody></table>';
+    let rowTable = '';
+    let row = getArray.length;
+
+    for (let i = 0; i < row; i++) {
+        rowTable = rowTable + '<tr><th scope="row">' + getArray[i].User_id + '</th><td>' + getArray[i].User_user + '</td><td>Otto</td><td>@mdo</td></tr>';
+
+    }
+    containerTable.innerHTML = textTable + tHead + row + textTable;
+}
+/**
+ * funtion create table array
+ */
+function createTableArray(getArray) {
+    const containerTbody = document.getElementById('myTable');
+    var formId = "'form_login'";
+    let rowTable = '';
+    let row = getArray.length;
+
+    for (let i = 0; i < row; i++) {
+        rowTable = rowTable + '<tr><th scope="row">' + (i + 1) + '</th><td>' + getArray[i].User_user + '</td><td>' + getArray[i].User_status_name + '</td><td>' + getArray[i].Role_name + '</td><td><div ><button type="button" style="background-color: #C7C5F4;" onclick="viewUser(' + formId + ',' + getArray[i].User_id + ')"class="btn m-1"><img src="../../../public/assets/img/icons/eye.svg"></button><button type="button" style="background-color: #C7C5F4;" onclick="editUser(' + formId + ',' + getArray[i].User_id + ')"class="btn m-1"><img src="../../../public/assets/img/icons/pen.svg"></button><button type="button" style="background-color: #C7C5F4;" onclick="deleteUser(' + formId + ',' + getArray[i].User_id + ')"class="btn m-1"><img src="../../../public/assets/img/icons/trash.svg"></button></div></td></tr>';
+
+    }
+    containerTbody.innerHTML = rowTable;
 }
