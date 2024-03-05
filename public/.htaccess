@@ -1,9 +1,0 @@
-<IfModule mod_rewrite.c>
-#se reescribe la url teniando en cuenta la ruta base, se crea una condicion para si el archivo existe lo cargue y si no lo redireccione hacia el index.php
-Options -Multiviews
-RewriteEngine On
-RewriteBase /proyecto/public/
-RewriteCond /%\{REQUEST_FILENAME} !-d
-RewriteCond /%\{REQUEST_FILENAME} !-f
-RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
-</IfModule>
