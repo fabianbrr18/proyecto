@@ -3,9 +3,9 @@ class Game {
         this.contGame = document.getElementById(contGameGame);
         this.contCardGame = document.querySelectorAll('.contCard');
         this.serverPath = window.location.origin;
-        this.uriJson = this.serverPath + "/memorygame/assets/data/User.json";
-        this.pathImg = this.serverPath + "/memorygame/assets/img/memory/";
-        this.pathImgDefault = this.serverPath + "/memorygame/assets/img/memory/img_default.png";
+        this.uriJson = this.serverPath + "/proyecto/memorygame/assets/data/User.json";
+        this.pathImg = this.serverPath + "/proyecto/memorygame/assets/img/memory/";
+        this.pathImgDefault = this.serverPath + "/proyecto/memorygame/assets/img/memory/img_default.png";
         this.longBootstrap = 12 / level;
         this.newArrayGames = [];
         this.arrayGamesCard = [];
@@ -20,7 +20,7 @@ class Game {
         this.matchedPairs = 0; // Inicializa el contador de parejas encontradas
         const link = document.createElement('link');
         link.rel = 'stylesheet';
-        link.href = '/memorygame/assets/css/styles.css'; // Reemplaza 'styles.css' con la ruta correcta a tu archivo CSS
+        link.href = '/proyecto/memorygame/assets/css/styles.css'; 
         document.head.appendChild(link);
         this.reset();
     }
