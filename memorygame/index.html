@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+
+    <title>Usuarios</title>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div>
+            <button class="btn btn-primary" type="button" onclick="setLevel(2)">Easy</button>
+            <button class="btn btn-primary" type="button" onclick="setLevel(4)">Half</button>
+            <button class="btn btn-primary" type="button" onclick="setLevel(6)">Hard</button>
+            <button class="btn btn-danger" type="button" onclick="resetGame()">Reiniciar Juego</button>
+        </div>
+        <div id="attempts" class="text-white">Intentos: <span id="attemptsCount">0</span></div>
+
+        <div id="progressBarContainer" class="progress">
+            <div id="progressBar" class="progress-bar"></div>
+        </div>
+        <div id="containerGame">
+            
+        </div>
+    </div>
+    <script src="./assets/js/GameClass.js"></script>
+
+    <script src="./assets/js/script.js"></script>
+    
+</body>
+
+</html>
