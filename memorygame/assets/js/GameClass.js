@@ -18,20 +18,22 @@ class Game {
         this.progress = document.getElementById('progressBar');
         this.currentAttempts = 0; // Inicializa el contador de intentos
         this.matchedPairs = 0; // Inicializa el contador de parejas encontradas
+        this.chronometer = new Chronometer(); // Crear una 
         const link = document.createElement('link');
         link.rel = 'stylesheet';
         link.href = '/proyecto/memorygame/assets/css/styles.css'; 
         document.head.appendChild(link);
         this.reset();
     }
-
     
     reset() {
         // Reinicia todos los datos del juego
-        this.currentAttempts = 0;
-        this.matchedPairs = 0;
-        this.progress.style.width = '0%';
-        this.countAttempts(); // Actualiza el contador de intentos en el HTML
+         // Reinicia todos los datos del juego
+         this.currentAttempts = 0;
+         this.matchedPairs = 0;
+         this.initProgressBar();
+         // Reinicia el contador de intentos en el HTML
+         document.getElementById('attemptsCount').textContent = '0';
     }
 
     getDataJson() {
